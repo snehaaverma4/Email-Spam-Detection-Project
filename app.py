@@ -4,8 +4,8 @@ import re
 import string
 
 # Load the model and vectorizer
-model = joblib.load("spam_model.pkl")
-vectorizer = joblib.load("tfidf_vectorizer.pkl")
+model = joblib.load("model.pkl")
+vectorizer = joblib.load("vectorizer.pkl")
 
 # Preprocessing function
 def clean_text(text):
