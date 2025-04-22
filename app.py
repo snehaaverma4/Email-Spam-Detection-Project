@@ -4,7 +4,7 @@ import re
 import string
 
 # Load the model and vectorizer
-model = joblib.load("model.pkl")
+model = joblib.load("spam_model.pkl")
 vectorizer = joblib.load("vectorizer.pkl")
 
 # Preprocessing function
