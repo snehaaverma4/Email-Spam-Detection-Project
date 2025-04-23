@@ -3,14 +3,6 @@ import joblib
 import re
 import string
 
-# Load model and vectorizer
-model = joblib.load("spam_model.pkl")
-
-# No need to load vectorizer separately
-cleaned = clean_text(input_email)
-result = model.predict([cleaned])[0]
-
-
 # Preprocessing function
 def clean_text(text):
     text = text.lower()
@@ -19,6 +11,9 @@ def clean_text(text):
     text = re.sub(r'\s+', ' ', text).strip()
     return text
 
+# Load the ML pipeline (model + vectorizer)
+model = joblib.load("spam_model.pkl")
+
 # Custom CSS styling
 st.markdown("""
     <style>
@@ -26,7 +21,7 @@ st.markdown("""
         background-color: #d2f5f9;
     }
     .block-container {
-        background-color: #FEFAE0;
+        background-color: #d2f5f9;
         padding-top: 4rem;
     }
     h1 {
@@ -63,9 +58,8 @@ input_email = st.text_area("✉️ Email Content", height=200)
 # Prediction button
 if st.button("🚀 Predict"):
     cleaned = clean_text(input_email)
-    vectorized = vectorizer.transform([cleaned])
-    result = model.predict(vectorized)[0]
-    
+    result = model.predict([cleaned])[0]
+
     st.markdown("---")
     if result == 1:
         st.markdown(
