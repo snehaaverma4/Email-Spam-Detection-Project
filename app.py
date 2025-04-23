@@ -2,82 +2,76 @@ import streamlit as st
 import joblib
 import re
 import string
-import os
 
-# Get the directory of the current script
-script_dir = os.path.dirname(__file__)
+# Load model and vectorizer
+model = joblib.load("spam_model.pkl")
+vectorizer = joblib.load("tfidf_vectorizer.pkl")
 
-# Construct file path to the pipeline
-model_path = os.path.join(script_dir, "spam_model.pkl")
-
-# Load the entire pipeline (model + vectorizer)
-try:
-    pipeline = joblib.load(model_path)  # Load the pipeline
-except FileNotFoundError:
-    st.error("Error: Model file not found!")
-    st.stop()
-except Exception as e:
-    st.error(f"An error occurred: {e}")
-    st.stop()
-
-
-# Preprocessing function (same as in training)
+# Preprocessing function
 def clean_text(text):
     text = text.lower()
     text = re.sub(f"[{string.punctuation}]", "", text)
-    text = re.sub(r"\d+", "", text)
-    text = re.sub(r"\s+", " ", text).strip()
+    text = re.sub(r'\d+', '', text)
+    text = re.sub(r'\s+', ' ', text).strip()
     return text
 
-
-# Streamlit UI
-st.title("📧 Email Spam Classifier")
-st.write("Enter the content of your email and find out if it's spam or not!")
-
-# background
-st.markdown(
-    """
-    <style>
-    body {
-        background-color: #C5EFF3; /* Light gray background */
-    }
-    .stApp {
-        background-color: #ffffff; /* White container background */
-        max-width: 800px;
-        margin: 0 auto;
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional shadow */
-    }
-    </style>
-    """,
-    unsafe_allow_html=True,
-)
-
+# Custom CSS styling
 st.markdown("""
     <style>
-    /* Make the whole background light blue */
     .stApp {
         background-color: #d2f5f9;
     }
-
-    /* Optional: tweak main content area */
     .block-container {
-        background-color: #d2f5f9;  /* same as sides */
-        padding: 2rem 2rem;
-        border-radius: 0.5rem;
+        background-color: #FEFAE0;
+        padding-top: 4rem;
+    }
+    h1 {
+        text-align: center;
+        margin-top: 3rem;
+        color: #2c3e50;
+    }
+    textarea {
+        background-color: #f0f8ff !important;
+        border: 1px solid #ccc !important;
+        border-radius: 10px !important;
+        padding: 10px !important;
+    }
+    .stButton>button {
+        background-color: #007BFF !important;
+        color: white !important;
+        border: none;
+        border-radius: 8px;
+        padding: 10px 24px;
     }
     </style>
 """, unsafe_allow_html=True)
 
+# Page config
+st.set_page_config(page_title="Email Spam Classifier", layout="centered", page_icon="📧")
 
-input_email = st.text_area("✉️ Email Content")
+# Main heading
+st.markdown("<h1>📧 Email Spam Classifier</h1>", unsafe_allow_html=True)
+st.markdown("<p style='text-align: center;'>Paste your email below to check if it's spam.</p>", unsafe_allow_html=True)
 
-if st.button("Predict"):
-    cleaned_text = clean_text(input_email)
-    prediction = pipeline.predict([cleaned_text])[0]  # Pipeline does vectorizing
+# Input area
+input_email = st.text_area("✉️ Email Content", height=200)
 
-    if prediction == 1:  # Assuming 1 represents spam
-        st.error("🚨 It's a SPAM email!")
+# Prediction button
+if st.button("🚀 Predict"):
+    cleaned = clean_text(input_email)
+    vectorized = vectorizer.transform([cleaned])
+    result = model.predict(vectorized)[0]
+    
+    st.markdown("---")
+    if result == 1:
+        st.markdown(
+            "<div style='background-color:#ffdddd;padding:20px;border-radius:10px;'>"
+            "<h3 style='color:#b30000;'>🚨 It's a SPAM email!</h3>"
+            "</div>", unsafe_allow_html=True
+        )
     else:
-        st.success("✅ It's a HAM (Not Spam) email!")
+        st.markdown(
+            "<div style='background-color:#ddffdd;padding:20px;border-radius:10px;'>"
+            "<h3 style='color:#006600;'>✅ It's a HAM (Not Spam) email!</h3>"
+            "</div>", unsafe_allow_html=True
+        )
