@@ -5,7 +5,11 @@ import string
 
 # Load model and vectorizer
 model = joblib.load("spam_model.pkl")
-vectorizer = joblib.load("tfidf_vectorizer.pkl")
+
+# No need to load vectorizer separately
+cleaned = clean_text(input_email)
+result = model.predict([cleaned])[0]
+
 
 # Preprocessing function
 def clean_text(text):
