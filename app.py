@@ -34,6 +34,7 @@ def clean_text(text):
 st.title("📧 Email Spam Classifier")
 st.write("Enter the content of your email and find out if it's spam or not!")
 
+# background
 st.markdown(
     """
     <style>
@@ -52,6 +53,23 @@ st.markdown(
     """,
     unsafe_allow_html=True,
 )
+
+st.markdown("""
+    <style>
+    /* Make the whole background light blue */
+    .stApp {
+        background-color: #d2f5f9;
+    }
+
+    /* Optional: tweak main content area */
+    .block-container {
+        background-color: #d2f5f9;  /* same as sides */
+        padding: 2rem 2rem;
+        border-radius: 0.5rem;
+    }
+    </style>
+""", unsafe_allow_html=True)
+
 
 input_email = st.text_area("✉️ Email Content")
 
