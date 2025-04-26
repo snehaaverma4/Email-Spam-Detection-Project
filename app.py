@@ -17,15 +17,15 @@ st.markdown("""
         color: #000000; /* Black */
         text-align: center;
         font-family: 'Arial', sans-serif;
-        font-size: 40px; /* Title size */
+        font-size: 36px; /* Title size */
     }
 
-    /* 🟣 Subheading (h2) Styling */
-    h3 {
-        color: #333333;
-        text-align: left;
-        font-family: 'Arial', sans-serif;
-        font-size: 14px; /* Smaller size for second heading */
+    # /* 🟣 Subheading (h2) Styling */
+    # h3 {
+    #     color: #333333;
+    #     text-align: left;
+    #     font-family: 'Arial', sans-serif;
+    #     font-size: 14px; /* Smaller size for second heading */
     }
 
     /* 🟢 Textarea (Input Box) Styling */
@@ -73,10 +73,13 @@ st.markdown("""
 
 # Streamlit App UI
 st.title("📧 Email Spam Classifier")
-st.markdown("---")
+# st.markdown("---")
 
 # Smaller second heading
-st.markdown("## Enter your email content below ")
+st.markdown("""
+    <h2 style='text-align: center; font-size:18px; color: #333333;'>Enter your email content below </h2>
+""", unsafe_allow_html=True)
+
 
 # Textarea
 input_email = st.text_area("✉️ Email Content")
