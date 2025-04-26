@@ -22,8 +22,8 @@ st.markdown("""
 
     /* Small Heading style */
     h2 {
-        text-align: center;
-        font-size: 20px;
+        text-align: left;
+        font-size: 19px;
         color: #333333;
         margin-top: 5px;
     }
@@ -91,10 +91,11 @@ div.stButton > button:first-child:focus {
 
 # Streamlit App UI
 st.title("📧 Email Spam Classifier")
-st.markdown("     ")
+# st.markdown("     ")
+st.markdown("<hr>", unsafe_allow_html=True)
 
 # Smaller second heading
-st.markdown("<h2>Enter your email content below 👇🏻</h2>", unsafe_allow_html=True)
+st.markdown("<h2>Enter your email content below 👇🏻</h2>")
 
 
 # Textarea
