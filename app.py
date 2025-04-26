@@ -87,47 +87,6 @@ st.markdown("""
         color: white;
         outline: none; /* Remove ugly blue border */
     }
-
-    /* 👇🏻 Dark Mode Styling */
-    @media (prefers-color-scheme: dark) {
-        /* Dark Mode Background */
-        .stApp {
-            background-color: #181818;
-        }
-
-        /* Dark Mode Title */
-        h1 {
-            color: #ffffff;
-        }
-
-        /* Dark Mode Text */
-        h2 {
-            color: #e0e0e0;
-        }
-
-        /* Dark Mode Input Box */
-        textarea {
-            border: 2px solid #3d4d5c !important; /* Darker border for input box */
-            background-color: #333333; /* Dark background */
-            color: white;
-        }
-
-        /* Dark Mode Button */
-        div.stButton > button:first-child {
-            background-color: #3e5c74; /* Darker button */
-        }
-
-        /* Dark Mode Button Hover */
-        div.stButton > button:first-child:hover {
-            background-color: #1e3a47;
-        }
-
-        /* Dark Mode Alert (Error / Success) */
-        .stAlert {
-            background-color: #333333;
-            color: white;
-        }
-    }
     </style>
 """, unsafe_allow_html=True)
 
