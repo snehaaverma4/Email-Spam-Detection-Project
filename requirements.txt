@@ -3,4 +3,3 @@ scikit-learn
 joblib
 numpy
 pandas
-link = https://email-spam-detection-project-rkina9a9scfysmbwyngtbs.streamlit.app/#4bd579f8
