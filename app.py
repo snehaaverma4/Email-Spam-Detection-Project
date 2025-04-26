@@ -12,12 +12,12 @@ st.markdown(
         background-color: eeffd3;
     }
     
-    /* Center everything and add padding */
-    .main {
-        padding-top: 50px;
-        padding-left: 10px;
-        padding-right: 10px;
-    }
+    # /* Center everything and add padding */
+    # .main {
+    #     padding-top: 50px;
+    #     padding-left: 10px;
+    #     padding-right: 10px;
+    # }
     
     /* Title Styling */
     h1 {
