@@ -96,7 +96,12 @@ st.markdown("<hr>", unsafe_allow_html=True)
 
 # Smaller second heading
 st.markdown(
-    <p style='text-align: left; font-size:20px; font-weight: bold; color: #333333; margin-top: 5px; margin-bottom: 5px;'>Enter your email content below 👇🏻</p>, unsafe_allow_html=True)
+    """ 
+    <p style='text-align: left; font-size:20px ; color: #333333; margin-top: 5px; margin-bottom: 5px;'>
+    Enter your email content below👇🏻
+    </p>
+    """, unsafe_allow_html=True
+)
 
 
 
