@@ -23,7 +23,7 @@ st.markdown("""
     /* Small Heading style */
     h2 {
         text-align: left;
-        font-size: 20px;
+        font-size: 16px;
         color: #333333;
         margin-top: 5px;
     }
