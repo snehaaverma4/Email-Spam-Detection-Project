@@ -1,6 +1,5 @@
 import streamlit as st
 import joblib
-import speech_recognition as sr
 
 # Load the saved full pipeline
 model_pipeline = joblib.load("spam_model.pkl")
@@ -90,56 +89,35 @@ div.stButton > button:first-child:focus {
     </style>
 """, unsafe_allow_html=True)
 
-def record_voice():
-    """Simple function to record audio and convert to text"""
-    r = sr.Recognizer()
-    try:
-        with sr.Microphone() as source:
-            st.info("🎙️ Speak now (listening for 5 seconds)...")
-            audio = r.listen(source, timeout=5)
-            try:
-                text = r.recognize_google(audio)
-                return text
-            except sr.UnknownValueError:
-                st.error("Could not understand audio")
-                return ""
-            except sr.RequestError:
-                st.error("Could not request results")
-                return ""
-    except Exception as e:
-        st.error(f"Error: {str(e)}")
-        return ""
-
 
 # Streamlit App UI
 st.title("📧 Email Spam Classifier")
 st.markdown("     ")
-# st.markdown("<hr>", unsafe_allow_html=True)
+st.markdown("<hr>", unsafe_allow_html=True)
 
-# # Smaller second heading
-# st.markdown(
-#     """ 
-#     <p style='text-align: left; font-size:22px ; color: #333333; margin-top: 5px; margin-bottom: 5px;'>
-#     Enter your email content below👇🏻
-#     </p>
-#     """, unsafe_allow_html=True
-# )
+# Smaller second heading
+st.markdown(
+    """ 
+    <p style='text-align: left; font-size:22px ; color: #333333; margin-top: 5px; margin-bottom: 5px;'>
+    Enter your email content below👇🏻
+    </p>
+    """, unsafe_allow_html=True
+)
 
-# Input Section - Both options visible together
-col1, col2 = st.columns(2)
+mode = st.selectbox("Choose Mode 🌗", ["Light Mode", "Dark Mode"])
 
-with col1:
-    st.markdown("**Type your email text:**")
-    input_email = st.text_area(" ", height=150, key="text_input")
-
-with col2:
-    st.markdown("**Or record audio:**")
-    if st.button("🎤 Record Voice", key="record_btn"):
-        recorded_text = record_voice()
-        if recorded_text:
-            input_email = recorded_text
-            st.text_area(" ", value=recorded_text, height=150, key="audio_result")
-
+if mode == "Dark Mode":
+    st.markdown(
+        """
+        <style>
+        .stApp {
+            background-color: #222222;
+            color: #f9f9f9;
+        }
+        </style>
+        """,
+        unsafe_allow_html=True
+    )
 
 
 # Textarea
