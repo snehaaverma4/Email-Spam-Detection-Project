@@ -91,7 +91,7 @@ div.stButton > button:first-child:focus {
 
 # Streamlit App UI
 st.title("📧 Email Spam Classifier")
-# st.markdown("     ")
+st.markdown("     ")
 # st.markdown("<hr>", unsafe_allow_html=True)
 
 # Smaller second heading
