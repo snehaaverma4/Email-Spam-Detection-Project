@@ -95,7 +95,7 @@ st.title("📧 Email Spam Classifier")
 st.markdown("<hr>", unsafe_allow_html=True)
 
 # Smaller second heading
-st.markdown(<h2>"Enter your email content below 👇🏻"</h2>)
+st.markdown("<h2>Enter your email content below 👇🏻</h2>", unsafe_allow_html=True)
 
 
 # Textarea
