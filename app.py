@@ -20,12 +20,24 @@ st.markdown("""
         font-size: 36px; /* Title size */
     }
 
-    # /* 🟣 Subheading (h2) Styling */
-    # h3 {
-    #     color: #333333;
-    #     text-align: left;
-    #     font-family: 'Arial', sans-serif;
-    #     font-size: 14px; /* Smaller size for second heading */
+    /* Small Heading style */
+    h2 {
+        text-align: center;
+        font-size: 20px;
+        color: #333333;
+        margin-top: 5px;
+    }
+
+    /* Line under title */
+    hr {
+        margin-top: 5px;  /* very small gap */
+        margin-bottom: 10px;
+        border: none;
+        height: 2px;
+        background-color: #4CAF50; /* Green line */
+        width: 50%;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     /* 🟢 Textarea (Input Box) Styling */
@@ -82,9 +94,7 @@ st.title("📧 Email Spam Classifier")
 st.markdown("     ")
 
 # Smaller second heading
-st.markdown("""
-    <h2 style='text-align: centre; font-size: 20px, color: #333333;'>Enter your email content below👇🏻</h2>
-""", unsafe_allow_html=True)
+st.markdown("<h2>Enter your email content below 👇🏻</h2>", unsafe_allow_html=True)
 
 
 # Textarea
