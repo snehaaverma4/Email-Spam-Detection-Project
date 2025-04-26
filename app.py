@@ -4,63 +4,84 @@ import joblib
 # Load the saved full pipeline
 model_pipeline = joblib.load("spam_model.pkl")
 
-# Custom CSS Styling (correct way for Streamlit)
+# Custom CSS Styling
 st.markdown("""
     <style>
-    /* Background color for the whole app */
+    /* 🔵 Overall App Background */
     .stApp {
         background-color: #f0f2f6;
     }
 
-    /* Title style */
+    /* 🟣 Title (h1) Styling */
     h1 {
-        color: #2F4F4F;
+        color: #2F4F4F; /* Dark Gray */
         text-align: center;
-        font-family: 'Arial';
+        font-family: 'Arial', sans-serif;
+        font-size: 42px; /* Title size */
     }
 
-    /* Text input (textarea) style */
+    /* 🟣 Subheading (h2) Styling */
+    h2 {
+        color: #333333;
+        text-align: center;
+        font-family: 'Arial', sans-serif;
+        font-size: 24px; /* Smaller size for second heading */
+    }
+
+    /* 🟢 Textarea (Input Box) Styling */
     textarea {
-        border: 2px solid #6c63ff !important;
-        border-radius: 10px !important;
-    }
-
-    /* Button style */
-    div.stButton > button:first-child {
-        background-color: #6c63ff;
-        color: white;
+        border: 2px solid #4CAF50 !important; /* Green border */
+        border-radius: 8px !important; /* Slightly round corners */
+        padding: 10px;
         font-size: 16px;
-        border-radius: 10px;
-        height: 50px;
-        width: 200px;
-        margin-top: 10px;
+        height: 150px !important; /* Make input box smaller */
     }
-    
-    div.stButton > button:hover {
-        background-color: #5548c8;
+
+    /* 🟠 Button Styling */
+    div.stButton > button:first-child {
+        background-color: #4CAF50; /* Green background */
+        color: white;
+        font-size: 14px; /* Make text slightly smaller */
+        border-radius: 8px;
+        height: 45px;
+        width: 150px;
+        margin-top: 10px;
+        border: none;
+    }
+
+    /* 🟠 Button Hover Styling */
+    div.stButton > button:first-child:hover {
+        background-color: #45a049; /* Slightly darker green on hover */
         color: white;
     }
 
-    /* Result message box styling */
+    /* 🟡 Result message (error/success) box */
     .stAlert {
-        border-radius: 12px;
+        border-radius: 10px;
+        padding: 20px;
     }
 
-    /* Add some padding to the page */
+    /* 🔵 Padding around whole page */
     .block-container {
         padding-top: 2rem;
         padding-bottom: 2rem;
+        padding-left: 2rem;
+        padding-right: 2rem;
     }
     </style>
 """, unsafe_allow_html=True)
 
-# Streamlit App
+# Streamlit App UI
 st.title("📧 Email Spam Classifier")
 st.markdown("---")
-st.write("## Enter your email content below 👇")
 
-input_email = st.text_area("✉️ Email Content", height=200)
+# Smaller second heading
+st.markdown("## Enter your email content below 👇")
 
+# Textarea
+input_email = st.text_area("✉️ Email Content")
+
+# Button
 if st.button("Predict"):
     prediction = model_pipeline.predict([input_email])[0]
     
