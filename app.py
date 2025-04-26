@@ -73,7 +73,7 @@ st.markdown("""
 
 # Streamlit App UI
 st.title("📧 Email Spam Classifier")
-# st.markdown("---")
+st.markdown("     ")
 
 # Smaller second heading
 st.markdown("""
