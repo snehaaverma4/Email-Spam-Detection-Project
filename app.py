@@ -104,22 +104,6 @@ st.markdown(
     """, unsafe_allow_html=True
 )
 
-mode = st.selectbox("Choose Mode 🌗", ["Light Mode", "Dark Mode"])
-
-if mode == "Dark Mode":
-    st.markdown(
-        """
-        <style>
-        .stApp {
-            background-color: #222222;
-            color: #f9f9f9;
-        }
-        </style>
-        """,
-        unsafe_allow_html=True
-    )
-
-
 # Textarea
 input_email = st.text_area("✉️ Email Content")
 
@@ -136,6 +120,4 @@ if st.button("Predict"):
         else:
             st.success("✅ It's a HAM (Not Spam) email!")
 
-if st.button("🎤 Record Voice Instead"):
-    input_email = record_voice()
 
