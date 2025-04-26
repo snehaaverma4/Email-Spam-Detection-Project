@@ -5,7 +5,7 @@ import joblib
 model_pipeline = joblib.load("spam_model.pkl")
 
 # Apply custom CSS
-st.markdown("""
+st.markdown(
     <style>
     /* Set background color */
     body {
@@ -62,7 +62,7 @@ st.markdown("""
         padding: 20px;
     }
     </style>
-""", unsafe_allow_html=True)
+, unsafe_allow_html=True)
 
 # Streamlit App UI
 st.title("📧 Email Spam Classifier")
