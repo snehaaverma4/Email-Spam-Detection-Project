@@ -25,7 +25,7 @@ st.markdown("""
         color: #333333;
         text-align: left;
         font-family: 'Arial', sans-serif;
-        font-size: 18px; /* Smaller size for second heading */
+        font-size: 14px; /* Smaller size for second heading */
     }
 
     /* 🟢 Textarea (Input Box) Styling */
@@ -63,7 +63,7 @@ st.markdown("""
 
     /* 🔵 Padding around whole page */
     .block-container {
-        padding-top: 2rem;
+        padding-top: 4rem;
         padding-bottom: 2rem;
         padding-left: 2rem;
         padding-right: 2rem;
