@@ -3,11 +3,10 @@ import joblib
 import re
 import string
 
-# Load the model and vectorizer
-model = joblib.load("spam_model.pkl")
-vectorizer = joblib.load("tfidf_vectorizer.pkl")
+# Load the saved pipeline (not separate model and vectorizer)
+model_pipeline = joblib.load("spam_model.pkl")  # Make sure you save the pipeline as 'spam_pipeline.pkl'
 
-# Preprocessing function
+# Preprocessing function (optional if pipeline includes preprocessing)
 def clean_text(text):
     text = text.lower()
     text = re.sub(f"[{string.punctuation}]", "", text)
@@ -22,11 +21,11 @@ st.write("Enter the content of your email and find out if it's spam or not!")
 input_email = st.text_area("✉️ Email Content")
 
 if st.button("Predict"):
-    cleaned = clean_text(input_email)
-    vectorized = vectorizer.transform([cleaned])
-    result = model.predict(vectorized)[0]
+    # No need for manual cleaning if the pipeline handles it
+    # cleaned = clean_text(input_email)
+    prediction = model_pipeline.predict([input_email])[0]
     
-    if result == 1:
+    if prediction == 1:
         st.error("🚨 It's a SPAM email!")
     else:
         st.success("✅ It's a HAM (Not Spam) email!")
