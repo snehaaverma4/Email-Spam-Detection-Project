@@ -77,7 +77,7 @@ st.title("📧 Email Spam Classifier")
 
 # Smaller second heading
 st.markdown("""
-    <h2 style='text-align: left; font-size:22px, color: #333333;'>Enter your email content below👇🏻</h2>
+    <h2 style='text-align: left; font-size:20px, color: #333333;'>Enter your email content below👇🏻</h2>
 """, unsafe_allow_html=True)
 
 
