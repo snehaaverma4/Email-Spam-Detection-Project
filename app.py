@@ -68,6 +68,12 @@ st.markdown("""
         padding-left: 2rem;
         padding-right: 2rem;
     }
+
+    /* 🔥 Button Focus (when clicked) */
+div.stButton > button:first-child:focus {
+    background-color: #45a049; /* Same as hover */
+    color: white;
+    outline: none; /* Remove ugly blue border */
     </style>
 """, unsafe_allow_html=True)
 
