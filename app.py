@@ -9,7 +9,7 @@ st.markdown("""
     <style>
     /* 🔵 Overall App Background */
     .stApp {
-        background-color: #ffccec;
+        background-color: #ebf8ff;
     }
 
     /* 🟣 Title (h1) Styling */
@@ -23,23 +23,23 @@ st.markdown("""
     /* 🟣 Subheading (h2) Styling */
     h2 {
         color: #333333;
-        text-align: center;
+        text-align: left;
         font-family: 'Arial', sans-serif;
-        font-size: 20px; /* Smaller size for second heading */
+        font-size: 18px; /* Smaller size for second heading */
     }
 
     /* 🟢 Textarea (Input Box) Styling */
     textarea {
-        border: 2px solid #93005c !important; /* margenta border */
+        border: 2px solid #004669 !important; /* margenta border */
         border-radius: 8px !important; /* Slightly round corners */
         padding: 10px;
         font-size: 16px;
-        height: 140px !important; /* Make input box smaller */
+        height: 100px !important; /* Make input box smaller */
     }
 
     /* 🟠 Button Styling */
     div.stButton > button:first-child {
-        background-color: #ff91d6; /* pink background */
+        background-color: #005a87; /* pink background */
         color: white;
         font-size: 14px; /* Make text slightly smaller */
         border-radius: 8px;
@@ -76,7 +76,7 @@ st.title("📧 Email Spam Classifier")
 st.markdown("---")
 
 # Smaller second heading
-st.markdown("## Enter your email content below 👇")
+st.markdown("## Enter your email content below ")
 
 # Textarea
 input_email = st.text_area("✉️ Email Content")
