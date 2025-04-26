@@ -21,7 +21,7 @@ st.markdown("""
     }
 
     /* 🟣 Subheading (h2) Styling */
-    h2 {
+    h3 {
         color: #333333;
         text-align: left;
         font-family: 'Arial', sans-serif;
