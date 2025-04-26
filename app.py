@@ -86,9 +86,13 @@ input_email = st.text_area("✉️ Email Content")
 
 # Button
 if st.button("Predict"):
-    prediction = model_pipeline.predict([input_email])[0]
-    
-    if prediction == 1:
-        st.error("🚨 It's a SPAM email!")
+    # 🛡️ PROPER EMPTY CHECK
+    if not input_email.strip():
+        st.warning("⚠️ Please enter some text before predicting.")
     else:
-        st.success("✅ It's a HAM (Not Spam) email!")
+        prediction = model_pipeline.predict([input_email])[0]
+        
+        if prediction == 1:
+            st.error("🚨 It's a SPAM email!")
+        else:
+            st.success("✅ It's a HAM (Not Spam) email!")
