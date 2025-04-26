@@ -9,15 +9,15 @@ st.markdown("""
     <style>
     /* 🔵 Overall App Background */
     .stApp {
-        background-color: #f0f2f6;
+        background-color: #ffccec;
     }
 
     /* 🟣 Title (h1) Styling */
     h1 {
-        color: #2F4F4F; /* Dark Gray */
+        color: #000000; /* Black */
         text-align: center;
         font-family: 'Arial', sans-serif;
-        font-size: 42px; /* Title size */
+        font-size: 40px; /* Title size */
     }
 
     /* 🟣 Subheading (h2) Styling */
@@ -25,26 +25,26 @@ st.markdown("""
         color: #333333;
         text-align: center;
         font-family: 'Arial', sans-serif;
-        font-size: 24px; /* Smaller size for second heading */
+        font-size: 20px; /* Smaller size for second heading */
     }
 
     /* 🟢 Textarea (Input Box) Styling */
     textarea {
-        border: 2px solid #4CAF50 !important; /* Green border */
+        border: 2px solid #93005c !important; /* margenta border */
         border-radius: 8px !important; /* Slightly round corners */
         padding: 10px;
         font-size: 16px;
-        height: 150px !important; /* Make input box smaller */
+        height: 140px !important; /* Make input box smaller */
     }
 
     /* 🟠 Button Styling */
     div.stButton > button:first-child {
-        background-color: #4CAF50; /* Green background */
+        background-color: #ff91d6; /* pink background */
         color: white;
         font-size: 14px; /* Make text slightly smaller */
         border-radius: 8px;
-        height: 45px;
-        width: 150px;
+        height: 40px;
+        width: 130px;
         margin-top: 10px;
         border: none;
     }
