@@ -82,13 +82,13 @@ st.markdown("""
     }
 
     /* 🔥 Button Focus (when clicked) */
-div.stButton > button:first-child:focus {
-    background-color: #034261; /* Same as hover */
-    color: white;
-    outline: none; /* Remove ugly blue border */
+    div.stButton > button:first-child:focus {
+        background-color: #034261; /* Same as hover */
+        color: white;
+        outline: none; /* Remove ugly blue border */
+    }
     </style>
 """, unsafe_allow_html=True)
-
 
 # Streamlit App UI
 st.title("📧 Email Spam Classifier")
@@ -99,12 +99,11 @@ st.markdown("<hr>", unsafe_allow_html=True)
 # Smaller second heading
 st.markdown(
     """ 
-    <p style='text-align: left; font-size:22px ; color: #333333; margin-top: 5px; margin-bottom: 5px;'>
+    <p style='text-align: left; font-size:22px ; color: #333333; margin-top: 5px; margin-bottom: 5px;' >
     Enter your email content below👇🏻
     </p>
     """, unsafe_allow_html=True
 )
-
 
 # Textarea
 input_email = st.text_area("✉️ Email Content")
@@ -121,5 +120,3 @@ if st.button("Predict"):
             st.error("🚨 It's a SPAM email!")
         else:
             st.success("✅ It's a HAM (Not Spam) email!")
-
-
