@@ -1,5 +1,6 @@
 import streamlit as st
 import joblib
+import speech_recognition as sr
 
 # Load the saved full pipeline
 model_pipeline = joblib.load("spam_model.pkl")
@@ -89,6 +90,23 @@ div.stButton > button:first-child:focus {
     </style>
 """, unsafe_allow_html=True)
 
+def record_voice():
+    recognizer = sr.Recognizer()
+    with sr.Microphone() as source:
+        st.info("🎙️ Listening... Please speak now!")
+        audio = recognizer.listen(source)
+    try:
+        text = recognizer.recognize_google(audio)
+        st.success(f"✅ Voice to Text: {text}")
+        return text
+    except sr.UnknownValueError:
+        st.error("❌ Could not understand audio.")
+        return ""
+    except sr.RequestError:
+        st.error("❌ Could not request results; check your network.")
+        return ""
+
+
 # Streamlit App UI
 st.title("📧 Email Spam Classifier")
 st.markdown("     ")
@@ -120,3 +138,7 @@ if st.button("Predict"):
             st.error("🚨 It's a SPAM email!")
         else:
             st.success("✅ It's a HAM (Not Spam) email!")
+
+if st.button("🎤 Record Voice Instead"):
+    input_email = record_voice()
+
