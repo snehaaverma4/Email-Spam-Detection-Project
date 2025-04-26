@@ -104,12 +104,6 @@ st.markdown(
     """, unsafe_allow_html=True
 )
 
-uploaded_file = st.file_uploader("📄 Or Upload a .txt file instead", type=["txt"])
-if uploaded_file is not None:
-    content = uploaded_file.read().decode("utf-8")
-    input_email = content
-    st.success("✅ File uploaded and content loaded into the box.")
-
 
 # Textarea
 input_email = st.text_area("✉️ Email Content")
