@@ -91,19 +91,23 @@ div.stButton > button:first-child:focus {
 """, unsafe_allow_html=True)
 
 def record_voice():
-    recognizer = sr.Recognizer()
-    with sr.Microphone() as source:
-        st.info("🎙️ Listening... Please speak now!")
-        audio = recognizer.listen(source)
+    """Simple function to record audio and convert to text"""
+    r = sr.Recognizer()
     try:
-        text = recognizer.recognize_google(audio)
-        st.success(f"✅ Voice to Text: {text}")
-        return text
-    except sr.UnknownValueError:
-        st.error("❌ Could not understand audio.")
-        return ""
-    except sr.RequestError:
-        st.error("❌ Could not request results; check your network.")
+        with sr.Microphone() as source:
+            st.info("🎙️ Speak now (listening for 5 seconds)...")
+            audio = r.listen(source, timeout=5)
+            try:
+                text = r.recognize_google(audio)
+                return text
+            except sr.UnknownValueError:
+                st.error("Could not understand audio")
+                return ""
+            except sr.RequestError:
+                st.error("Could not request results")
+                return ""
+    except Exception as e:
+        st.error(f"Error: {str(e)}")
         return ""
 
 
