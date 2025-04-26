@@ -24,7 +24,7 @@ st.markdown(
         color: #2F4F4F;
         text-align: center;
         font-family: 'Arial';
-        font-size: 3em;
+        # font-size: 3em;
     }
 
     /* Text area styling */
@@ -32,7 +32,7 @@ st.markdown(
         border-radius: 10px;
         border: 2px solid #6c63ff;
         padding: 10px;
-        font-size: 1em;
+        # font-size: 1em;
     }
 
     /* Button styling */
