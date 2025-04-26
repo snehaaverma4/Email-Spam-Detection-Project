@@ -23,7 +23,7 @@ st.markdown("""
     /* Small Heading style */
     h2 {
         text-align: left;
-        font-size: 19px;
+        font-size: 20px;
         color: #333333;
         margin-top: 5px;
     }
@@ -34,8 +34,8 @@ st.markdown("""
         margin-bottom: 10px;
         border: none;
         height: 2px;
-        background-color: #4CAF50; /* Green line */
-        width: 50%;
+        background-color: #000000; /* Green line */
+        width: 100%;
         margin-left: auto;
         margin-right: auto;
     }
@@ -95,7 +95,7 @@ st.title("📧 Email Spam Classifier")
 st.markdown("<hr>", unsafe_allow_html=True)
 
 # Smaller second heading
-st.markdown("<h2>Enter your email content below 👇🏻</h2>")
+st.markdown(<h2>"Enter your email content below 👇🏻"</h2>)
 
 
 # Textarea
