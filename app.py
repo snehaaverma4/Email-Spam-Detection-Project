@@ -71,7 +71,7 @@ st.markdown("""
 
     /* 🔥 Button Focus (when clicked) */
 div.stButton > button:first-child:focus {
-    background-color: #45a049; /* Same as hover */
+    background-color: #034261; /* Same as hover */
     color: white;
     outline: none; /* Remove ugly blue border */
     </style>
