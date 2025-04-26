@@ -51,7 +51,7 @@ st.markdown("""
 
     /* 🟠 Button Hover Styling */
     div.stButton > button:first-child:hover {
-        background-color: #45a049; /* Slightly darker green on hover */
+        background-color: #034261 ; /* Slightly darker green on hover */
         color: white;
     }
 
@@ -83,7 +83,7 @@ st.markdown("     ")
 
 # Smaller second heading
 st.markdown("""
-    <h2 style='text-align: centre; font-size: 21px, color: #333333;'>Enter your email content below👇🏻</h2>
+    <h2 style='text-align: centre; font-size: 20px, color: #333333;'>Enter your email content below👇🏻</h2>
 """, unsafe_allow_html=True)
 
 
