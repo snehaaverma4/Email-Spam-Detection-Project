@@ -46,7 +46,7 @@ st.markdown("""
         border-radius: 8px !important; /* Slightly round corners */
         padding: 10px;
         font-size: 16px;
-        height: 150px !important; /* Make input box smaller */
+        height: 220px !important; /* Make input box smaller */
     }
 
     /* 🟠 Button Styling */
